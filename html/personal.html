@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Personal Information Form</title>
+		<link rel="stylesheet" href="../css/personal.css" />
+	</head>
+	<body>
+		<form>
+			<div class="column">
+				<div>
+					<label for="firstName">نام:</label>
+					<input type="text" id="firstName" name="firstName" required />
+				</div>
+				<div>
+					<label for="lastName">نام خانوادگی:</label>
+					<input type="text" id="lastName" name="lastName" required />
+				</div>
+				<div>
+					<label for="phoneNumber">شماره تماس:</label>
+					<input type="tel" id="phoneNumber" name="phoneNumber" required />
+				</div>
+				<div>
+					<label for="email">ایمیل:</label>
+					<input type="email" id="email" name="email" required />
+				</div>
+				<div>
+					<label for="maritalStatus">وضعیت تاهل:</label>
+					<select id="maritalStatus" name="maritalStatus" required>
+						<option value="single">مجرد</option>
+						<option value="married">متاهل</option>
+					</select>
+				</div>
+				<div>
+					<label for="gender">جنسیت</label>
+					<select id="gender" name="gender" required>
+						<option value="male">مرد</option>
+						<option value="female">زن</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="column">
+				<div>
+					<label for="militaryService">وضعیت سربازی</label>
+					<select id="militaryService" name="militaryService" required>
+						<option value="completed">پایان خدمت</option>
+						<option value="exempt">معافیت</option>
+						<option value="postponed">مشمول</option>
+					</select>
+				</div>
+				<div>
+					<label for="city">شهر:</label>
+					<select id="city" name="city" required>
+						<option value="tehran">تهران</option>
+						<option value="shiraz">شیراز</option>
+						<option value="esfahan">اصفهان</option>
+					</select>
+				</div>
+				<div>
+					<label for="numberOfChildren">تعداد فرزندان:</label>
+					<input
+						type="number"
+						id="numberOfChildren"
+						name="numberOfChildren"
+						min="0" />
+				</div>
+				<div>
+					<label for="childrenAges">سن فرزندان(با ویرگول جدا شود):</label>
+					<input type="text" id="childrenAges" name="childrenAges" />
+				</div>
+			</div>
+
+			<a type="submit" href="./education.html">صفحه بعد</a>
+		</form>
+	</body>
+</html>
