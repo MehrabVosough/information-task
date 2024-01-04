@@ -14,7 +14,8 @@ form {
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	padding: 20px;
-	width: 600px; /* Adjust the width as needed */
+	width: 800px;
+	height: 500px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -41,10 +42,11 @@ a {
 	background-color: #3cc041;
 	color: #fff;
 	border: none;
-	padding: 12px 250px;
+	padding: 12px 350px;
 	margin-right: 20px;
 	border-radius: 4px;
 	cursor: pointer;
 	font-size: 1.1rem;
 	text-decoration: none;
+	
 }

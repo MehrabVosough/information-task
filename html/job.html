@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>فرم اطلاعات کاری</title>
+		<link rel="stylesheet" href="../css/job.css" />
+	</head>
+	<body>
+		<form>
+			<!-------------------- first column------------------- -->
+			<div class="column">
+				<div>
+					<label>نام شرکت:</label>
+					<input type="text" />
+				</div>
+				<div>
+					<label>سال ورود:</label>
+					<input type="date" class="enter-date" />
+				</div>
+			</div>
+			<!-- --------------------second column--------------------- -->
+			<div class="column">
+				<div></div>
+				<div>
+					<label>عنوان شغلی:</label>
+					<input type="text" />
+				</div>
+			</div>
+			<!------------------- radio and submmit -------------------->
+			<div>
+				<label>وضعیت کاری:</label>
+				<div class="status">
+					<input
+						type="radio"
+						id="studying"
+						name="educationStatus"
+						class="custom-radio" />
+					<label class="text-sm">هنوز در حال همکاری هستم</label>
+
+					<input
+						type="radio"
+						id="graduated"
+						name="educationStatus"
+						class="custom-radio" />
+					<label class="text-sm">سال پایان:</label>
+					<input type="date" class="start-date" />
+				</div>
+
+				<div class="add">
+					<svg class="svg-plus" viewBox="0 0 100 100">
+						<circle
+							cx="50"
+							cy="50"
+							r="45"
+							fill="none"
+							stroke-width="7.5"></circle>
+						<line x1="32.5" y1="50" x2="67.5" y2="50" stroke-width="5"></line>
+						<line x1="50" y1="32.5" x2="50" y2="67.5" stroke-width="5"></line>
+					</svg>
+					<p>افزودن سابقه</p>
+				</div>
+			</div>
+			<!----------------------- submmit------------------- -->
+			<div class="pages">
+				<div class="submmit">
+					<a>ثبت اطلاعات</a>
+				</div>
+				<div class="previous">
+					<a href="./education.html">صفحه قبل</a>
+				</div>
+			</div>
+		</form>
+		<script type="module" src="../js/job.js"></script>
+	</body>
+</html>

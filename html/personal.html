@@ -9,6 +9,8 @@
 	</head>
 	<body>
 		<form>
+
+			<!------------------------first column------------------------- -->
 			<div class="column">
 				<div>
 					<label for="firstName">نام:</label>
@@ -41,16 +43,8 @@
 					</select>
 				</div>
 			</div>
-
+			<!-------------------------- second column------------------------ -->
 			<div class="column">
-				<div>
-					<label for="militaryService">وضعیت سربازی</label>
-					<select id="militaryService" name="militaryService" required>
-						<option value="completed">پایان خدمت</option>
-						<option value="exempt">معافیت</option>
-						<option value="postponed">مشمول</option>
-					</select>
-				</div>
 				<div>
 					<label for="city">شهر:</label>
 					<select id="city" name="city" required>
@@ -59,7 +53,17 @@
 						<option value="esfahan">اصفهان</option>
 					</select>
 				</div>
-				<div>
+
+				<!-- ------------- hide options--------------- -->
+				<div class="military" hidden>
+					<label for="militaryService">وضعیت سربازی</label>
+					<select id="militaryService" name="militaryService" required>
+						<option value="completed">پایان خدمت</option>
+						<option value="exempt">معافیت</option>
+						<option value="postponed">مشمول</option>
+					</select>
+				</div>
+				<div class="num-children" hidden>
 					<label for="numberOfChildren">تعداد فرزندان:</label>
 					<input
 						type="number"
@@ -67,9 +71,9 @@
 						name="numberOfChildren"
 						min="0" />
 				</div>
-				<div>
+				<div class="child-age" hidden>
 					<label for="childrenAges">سن فرزندان(با ویرگول جدا شود):</label>
-					<input type="text" id="childrenAges" name="childrenAges" />
+					<input type="text" id="childrenAges" name="childrenAges" required />
 				</div>
 			</div>
 
