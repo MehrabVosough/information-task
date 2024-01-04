@@ -49,6 +49,6 @@ a {
 	font-size: 1.1rem;
 	text-decoration: none;
 }
-.military {
+.military, .num-children {
 	display: none;
 }
