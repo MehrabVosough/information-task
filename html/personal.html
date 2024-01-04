@@ -9,7 +9,6 @@
 	</head>
 	<body>
 		<form>
-
 			<!------------------------first column------------------------- -->
 			<div class="column">
 				<div>
@@ -31,6 +30,7 @@
 				<div>
 					<label for="maritalStatus">وضعیت تاهل:</label>
 					<select id="maritalStatus" name="maritalStatus" required>
+						<option value="none"></option>
 						<option value="single">مجرد</option>
 						<option value="married">متاهل</option>
 					</select>
@@ -38,6 +38,7 @@
 				<div>
 					<label for="gender">جنسیت</label>
 					<select id="gender" name="gender" required>
+						<option value="none"></option>
 						<option value="male">مرد</option>
 						<option value="female">زن</option>
 					</select>
@@ -55,7 +56,7 @@
 				</div>
 
 				<!-- ------------- hide options--------------- -->
-				<div class="military" hidden>
+				<div class="military">
 					<label for="militaryService">وضعیت سربازی</label>
 					<select id="militaryService" name="militaryService" required>
 						<option value="completed">پایان خدمت</option>
@@ -76,8 +77,8 @@
 					<input type="text" id="childrenAges" name="childrenAges" required />
 				</div>
 			</div>
-
 			<a type="submit" href="./education.html">صفحه بعد</a>
+			<script type="module" src="../js/personal.js"></script>
 		</form>
 	</body>
 </html>
