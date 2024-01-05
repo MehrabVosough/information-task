@@ -4,16 +4,21 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Personal Information Form</title>
+		<title>اطلاعات فردی</title>
 		<link rel="stylesheet" href="../css/personal.css" />
 	</head>
 	<body>
-		<form>
+		<form class="form">
 			<!------------------------first column------------------------- -->
 			<div class="column">
 				<div>
 					<label for="firstName">نام:</label>
-					<input type="text" id="firstName" name="firstName" required />
+					<input
+						type="text"
+						id="firstName"
+						name="firstName"
+						required
+						autofocus />
 				</div>
 				<div>
 					<label for="lastName">نام خانوادگی:</label>
@@ -30,7 +35,7 @@
 				<div>
 					<label for="maritalStatus">وضعیت تاهل:</label>
 					<select id="maritalStatus" name="maritalStatus" required>
-						<option value="none"></option>
+						<option value="null"></option>
 						<option value="single">مجرد</option>
 						<option value="married">متاهل</option>
 					</select>
@@ -38,7 +43,7 @@
 				<div>
 					<label for="gender">جنسیت</label>
 					<select id="gender" name="gender" required>
-						<option value="none"></option>
+						<option value="null"></option>
 						<option value="male">مرد</option>
 						<option value="female">زن</option>
 					</select>
@@ -49,16 +54,17 @@
 				<div>
 					<label for="city">شهر:</label>
 					<select id="city" name="city" required>
+						<option value="null"></option>
 						<option value="tehran">تهران</option>
 						<option value="shiraz">شیراز</option>
 						<option value="esfahan">اصفهان</option>
 					</select>
 				</div>
-
 				<!-- ------------- hide options--------------- -->
 				<div class="military">
 					<label for="militaryService">وضعیت سربازی</label>
 					<select id="militaryService" name="militaryService" required>
+						<option value="null"></option>
 						<option value="completed">پایان خدمت</option>
 						<option value="exempt">معافیت</option>
 						<option value="postponed">مشمول</option>
@@ -73,7 +79,7 @@
 				</div>
 				<div class="ages"></div>
 			</div>
-			<a type="submit" href="./education.html">صفحه بعد</a>
+			<a type="submit" href="./education.html" class="submit">صفحه بعد</a>
 			<script type="module" src="../js/personal.js"></script>
 		</form>
 	</body>
