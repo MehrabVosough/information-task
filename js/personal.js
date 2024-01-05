@@ -5,6 +5,7 @@ const militarySel = document.querySelector("#militaryService");
 const maritalStatus = document.querySelector("#maritalStatus");
 const numChildren = document.querySelector(".num-children");
 const numChildrenInput = document.querySelector(".numberOfChildren");
+const childrenAges = document.querySelector("#childrenAges");
 const ageDiv = document.querySelector(".ages");
 const nameInput = document.querySelector("#firstName");
 const lastNameInput = document.querySelector("#lastName");
@@ -36,7 +37,7 @@ numChildrenInput.addEventListener("change", () => {
 		<input  type="text" step="1" id="childrenAges" name="childrenAges" required />`;
 		div.innerHTML = markUp;
 		ageDiv.appendChild(div);
-	}
+	};
 });
 
 // SAVE TO LOCAL
@@ -61,8 +62,7 @@ const saveToLocal = submit.addEventListener("click", () => {
 
 const savedLocal = localStorage.getItem("information");
 const pareseSaveLocal = JSON.parse(savedLocal);
-const destructuring = pareseSaveLocal[0];
-const keys = Object.values(destructuring);
+const keys = Object.values(pareseSaveLocal[0]);
 
 const [
 	name,
@@ -85,3 +85,9 @@ genderSel.value = gender;
 citySel.value = city;
 militarySel.value = military;
 numChildrenInput.value = children;
+genderSel.value === "male"
+	? (militaryDev.style.display = "block")
+	: (militaryDev.style.display = "none");
+maritalStatus.value === "married"
+	? (numChildren.style.display = "block")
+	: (numChildren.style.display = "none");
