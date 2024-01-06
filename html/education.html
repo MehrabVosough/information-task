@@ -9,75 +9,98 @@
 	<body>
 		<form>
 			<!----------------------------first column----------------------------------- -->
-			<div class="column">
-				<div>
-					<label>مدرک:</label>
-					<select class="degree" required>
-						<option value="highschool">سیکل</option>
-						<option value="academic">دیپلم</option>
-						<option value="associate">کاردانی</option>
-						<option value="bachelor">کارشناسی</option>
-						<option value="master">ارشد</option>
-					</select>
+			<div class="fields">
+				<div class="column">
+					<div>
+						<label>مدرک:</label>
+						<select class="degree" required>
+							<option value="highschool">سیکل</option>
+							<option value="academic">دیپلم</option>
+							<option value="associate">کاردانی</option>
+							<option value="bachelor">کارشناسی</option>
+							<option value="master">ارشد</option>
+						</select>
+					</div>
+					<div>
+						<label>رشته تحصیلی:</label>
+						<select class="field" required>
+							<option value="none"></option>
+							<option value="accounting">حسابداری</option>
+							<option value="it">IT</option>
+							<option value="mba">MBA</option>
+						</select>
+					</div>
+					<div>
+						<label>وضعیت تحصیلی:</label>
+						<div class="status">
+							<input
+								type="radio"
+								id="studying"
+								name="educationStatus"
+								class="custom-radio" />
+							<label class="text-sm">هنوز در حال تحصیل میباشم</label>
+
+							<input
+								type="radio"
+								id="graduated"
+								name="educationStatus"
+								class="custom-radio" />
+							<label class="text-sm">فارغ التحصیل:</label>
+							<!------------ hide ------------>
+							<input type="date" />
+							<!------------ hide ------------>
+						</div>
+					</div>
 				</div>
-				<div>
-					<label>رشته تحصیلی:</label>
-					<select class="field" required>
-						<option value="accounting">حسابداری</option>
-						<option value="it">IT</option>
-						<option value="mba">MBA</option>
-					</select>
+				<!---------------------------------second column--------------------- -->
+				<div class="column">
+					<div>
+						<label>دانشگاه:</label>
+						<input type="text" id="university" />
+					</div>
+					<!--------field depence (hide)---------- -->
+					<div class="branch">
+						<label for="">گرایش</label>
+						<select name="branch" id="branchsel"></select>
+					</div>
+					<!--------field depence----------- -->
 				</div>
 			</div>
 
-			<!---------------------------------second column--------------------- -->
-			<div class="column">
-				<div>
-					<label>دانشگاه:</label>
-					<input type="text" />
-				</div>
-				<!--------field depence (hide)---------- -->
-				<div class="branch">
-					<label for="">گرایش</label>
-					<select name="branch" id="brach"></select>
-				</div>
-				<!--------field depence----------- -->
+			<div class="select">
+				<svg class="svg-plus" viewBox="0 0 100 100">
+					<circle
+						cx="50"
+						cy="50"
+						r="45"
+						fill="none"
+						stroke-width="7.5"></circle>
+					<line x1="32.5" y1="50" x2="67.5" y2="50" stroke-width="5"></line>
+					<line x1="50" y1="32.5" x2="50" y2="67.5" stroke-width="5"></line>
+				</svg>
+				<a href="">افزودن مدرک تحصیلی...</a>
 			</div>
-
-			<div>
-				<label>وضعیت تحصیلی:</label>
-				<div class="status">
-					<input
-						type="radio"
-						id="studying"
-						name="educationStatus"
-						class="custom-radio" />
-					<label class="text-sm">هنوز در حال تحصیل میباشم</label>
-
-					<input
-						type="radio"
-						id="graduated"
-						name="educationStatus"
-						class="custom-radio" />
-					<label class="text-sm">فارغ التحصیل:</label>
-					<!------------ hide ------------>
-					<input type="date" />
-					<!------------ hide ------------>
-				</div>
-
-				<div class="add">
-					<svg class="svg-plus" viewBox="0 0 100 100">
-						<circle
-							cx="50"
-							cy="50"
-							r="45"
-							fill="none"
-							stroke-width="7.5"></circle>
-						<line x1="32.5" y1="50" x2="67.5" y2="50" stroke-width="5"></line>
-						<line x1="50" y1="32.5" x2="50" y2="67.5" stroke-width="5"></line>
-					</svg>
-					<p>افزودن مدرک تحصیلی</p>
-				</div>
+			<div class="table">
+				<table>
+					<thead>
+						<tr>
+							<th>مدرک</th>
+							<th>رشته</th>
+							<th>گرایش</th>
+							<th>دانشگاه</th>
+							<th>پایان</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>مدرک</td>
+							<td>رشته</td>
+							<td>گرایش</td>
+							<td>دانشگاه</td>
+							<td>date</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 
 			<div class="pages">

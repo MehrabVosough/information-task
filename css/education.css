@@ -15,10 +15,11 @@ form {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	padding: 20px;
 	width: 800px;
-	height: 500px;
+	height: auto;
+}
+
+.fields {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
 }
 
 label {
@@ -77,6 +78,10 @@ select {
 	width: 100%;
 }
 
+.branch {
+	display: none;
+}
+
 .status label {
 	font-size: 1rem;
 	margin-left: 50px;
@@ -103,38 +108,69 @@ select {
 	transform: translate(-50%, -50%);
 	width: 10px;
 	height: 10px;
-	background-color: #4a5568;
+	background-color: #0a57dc;
 	border-radius: 50%;
 }
 
 input[type="date"] {
-	width: 25%;
-	padding: 10px;
-	border: 1px solid #4a5568;
+	padding: 10px 20px;
+	border: 1px solid #0a57dc;
 	border-radius: 4px;
 	box-sizing: border-box;
-	visibility: hidden;
+	display: none;
 	margin-top: 10px;
 }
 
 .svg-plus {
-	height: 20px;
-	stroke: red;
+	height: 18px;
+	stroke: #0a57dc;
+	margin-bottom: 2px;
 }
 
-.add {
-	display: flex;
-	align-items: center;
-	justify-items: center;
+.select {
 	margin-top: 20px;
 	cursor: pointer;
 }
-.add p {
-	margin-right: 10px;
-	font-weight: 600;
-	font-size: 1.3rem;
+
+.select :hover {
+	font-size: 1.5rem;
 }
 
-.branch {
-	visibility: hidden;
+.select {
+	display: flex;
+	align-items: center;
+}
+
+.select a {
+	margin-right: 5px;
+	font-weight: 600;
+	font-size: 1.4rem;
+	text-decoration: none;
+	color: black;
+}
+
+table {
+	width: 100%;
+}
+
+th {
+	background-color: #9ea6b4;
+}
+
+thead th {
+	padding: 10px;
+}
+
+thead th:first-child {
+	border-top-right-radius: 10px;
+}
+
+thead th:last-child {
+	border-top-left-radius: 10px;
+}
+
+tbody td {
+	background-color: #edeef0;
+	padding: 5px 10px;
+	text-align: center;
 }

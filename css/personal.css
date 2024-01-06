@@ -50,8 +50,6 @@ a {
 	text-decoration: none;
 }
 .military,
-.num-children,
-.ages
- {
+.num-children {
 	display: none;
 }
