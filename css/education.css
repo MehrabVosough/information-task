@@ -112,7 +112,7 @@ select {
 	border-radius: 50%;
 }
 
-input[type="date"] {
+#date {
 	padding: 10px 20px;
 	border: 1px solid #0a57dc;
 	border-radius: 4px;
