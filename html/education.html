@@ -35,19 +35,23 @@
 						<div class="status">
 							<input
 								type="radio"
-								id="studying"
+								id="studing"
 								name="educationStatus"
-								class="custom-radio" />
-							<label class="text-sm">هنوز در حال تحصیل میباشم</label>
+								class="custom-radio"
+								value="notYet"
+								checked />
+							<label>هنوز در حال تحصیل میباشم</label>
 
 							<input
 								type="radio"
 								id="graduated"
 								name="educationStatus"
-								class="custom-radio" />
-							<label class="text-sm">فارغ التحصیل:</label>
+								class="custom-radio"
+								value="ended" 
+								onchange=""/>
+							<label>فارغ التحصیل:</label>
 							<!------------ hide ------------>
-							<input type="date" />
+							<input type="date" id="date" />
 							<!------------ hide ------------>
 						</div>
 					</div>
@@ -61,7 +65,7 @@
 					<!--------field depence (hide)---------- -->
 					<div class="branch">
 						<label for="">گرایش</label>
-						<select name="branch" id="branchsel"></select>
+						<select name="" id="branchBox"></select>
 					</div>
 					<!--------field depence----------- -->
 				</div>
