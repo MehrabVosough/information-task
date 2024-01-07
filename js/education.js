@@ -48,9 +48,9 @@ endOfStudy.addEventListener("change", () => {
 // save to table
 
 const saveToLocal = () => {
-	localStorage.setItem("table", JSON.stringify(tableAdd));
+	localStorage.setItem("education", JSON.stringify(tableAdd));
 };
-const tableAdd = JSON.parse(localStorage.getItem("table")) || [];
+const tableAdd = JSON.parse(localStorage.getItem("education")) || [];
 
 const displayTable = () => {
 	tableBody.innerHTML = "";
