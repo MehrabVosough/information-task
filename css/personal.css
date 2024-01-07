@@ -15,7 +15,7 @@ form {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	padding: 20px;
 	width: 800px;
-	height: 500px;
+	height: auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -42,12 +42,16 @@ a {
 	background-color: #3cc041;
 	color: #fff;
 	border: none;
-	padding: 12px 350px;
-	margin-right: 20px;
+	padding: 12px 300px;
+	margin: 0 70px;
 	border-radius: 4px;
 	cursor: pointer;
 	font-size: 1.1rem;
 	text-decoration: none;
+}
+
+a:hover {
+	background-color: #3bca1a;
 }
 .military,
 .num-children {

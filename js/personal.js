@@ -5,7 +5,7 @@ const militarySel = document.querySelector("#militaryService");
 const maritalStatus = document.querySelector("#maritalStatus");
 const numChildren = document.querySelector(".num-children");
 const numChildrenInput = document.querySelector(".numberOfChildren");
-const childrenAges = document.querySelector("#childrenAges");
+const childrenAges = document.querySelector(".childrenAges");
 const ageDiv = document.querySelector(".ages");
 const nameInput = document.querySelector("#firstName");
 const lastNameInput = document.querySelector("#lastName");
@@ -25,17 +25,15 @@ maritalStatus.addEventListener("change", () => {
 	maritalStatus.value === "married"
 		? (numChildren.style.display = "block")
 		: (numChildren.style.display = "none");
-	});
-	
-	numChildrenInput.addEventListener("change", () => {
-		const childrenCounter = +numChildrenInput.value;
-	ageDiv.style.display = "inline-block";
+});
+
+numChildrenInput.addEventListener("change", () => {
+	const childrenCounter = +numChildrenInput.value;
+	ageDiv.innerHTML = "";
 	for (let i = 1; i <= childrenCounter; i++) {
-		const div = document.createElement("div");
 		const markUp = `<label for="childrenAges">سن فرزند${i}:</label>
-		<input  type="text" step="1" id="childrenAges" name="childrenAges" required />`;
-		div.innerHTML = markUp;
-		ageDiv.appendChild(div);
+		<input  type="text" step="1" class="childrenAges" name="childrenAges" required />`;
+		ageDiv.innerHTML += markUp;
 	}
 });
 
