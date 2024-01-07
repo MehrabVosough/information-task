@@ -8,27 +8,29 @@ const studingRadio = document.querySelector("#studing");
 const endOfStudy = document.querySelector("#graduated");
 const dateOfEnd = document.querySelector("#date");
 const branchBox = document.querySelector("#branchBox");
+const addToTable = document.querySelector("#addToTable");
+const saveToTable = document.querySelector(".select");
+const hi = document.querySelector("#hi");
 
 // depence
 fieldSel.addEventListener("change", () => {
-	if (fieldSel.value === "accounting") {
+	if (fieldSel.value === "حسابداری") {
 		branchDiv.style.display = "block";
-		const accounting = `<option value="a">صنعتی</option>
-		<option value="b">تجاری</option>
-		<option value="c">بازگانی</option>`;
+		const accounting = `<option>صنعتی</option>
+		<option >تجاری</option>
+		<option >بازگانی</option>`;
 		branchBox.innerHTML = accounting;
-
-	} else if (fieldSel.value === "it") {
+	} else if (fieldSel.value === "IT") {
 		branchDiv.style.display = "block";
 		const it = `<option value="a">مدیریت دانش</option>
-        <option value="b">معماری سازمانی</option>
-        <option value="c">امنیت داده</option>`;
+        <option >معماری سازمانی</option>
+        <option >امنیت داده</option>`;
 		branchBox.innerHTML = it;
-	} else if (fieldSel.value === "mba") {
+	} else if (fieldSel.value === "MBA") {
 		branchDiv.style.display = "block";
 		const mba = `<option value="a">مالی</option>
-        <option value="b">بازاریابی</option>
-        <option value="c">استراتژی</option>`;
+        <option >بازاریابی</option>
+        <option >استراتژی</option>`;
 		branchBox.innerHTML = mba;
 	} else {
 		branchDiv.style.display = "none";
@@ -43,3 +45,35 @@ studingRadio.addEventListener("change", () => {
 endOfStudy.addEventListener("change", () => {
 	dateOfEnd.style.display = "block";
 });
+
+// save to table
+
+const saveToLocal = () => {
+	localStorage.setItem("table", JSON.stringify(tableAdd));
+};
+
+const tableAdd = [];
+const addHandler = (e) => {
+	// e.preventDefault();
+	const degree = degreeSel.value;
+	const field = fieldSel.value;
+	const branch = branchBox.value;
+	const uni = univercityInput.value;
+	const date = dateOfEnd.value;
+	const tableItems = {
+		degree: degree,
+		field: field,
+		branch: branch,
+		uni: uni,
+		date: date,
+	};
+	if (uni && field && branch) {
+		tableAdd.push(tableItems);
+		saveToLocal();
+	} else {
+		alert("فیلد ها نباید خالی باشه!");
+		return;
+	}
+};
+
+saveToTable.addEventListener("click", addHandler);
