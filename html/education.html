@@ -14,20 +14,20 @@
 					<div>
 						<label>مدرک:</label>
 						<select class="degree" required>
-							<option value="highschool">سیکل</option>
-							<option value="academic">دیپلم</option>
-							<option value="associate">کاردانی</option>
-							<option value="bachelor">کارشناسی</option>
-							<option value="master">ارشد</option>
+							<option value="none">--</option>
+							<option>دیپلم</option>
+							<option>کاردانی</option>
+							<option>کارشناسی</option>
+							<option>ارشد</option>
 						</select>
 					</div>
 					<div>
 						<label>رشته تحصیلی:</label>
 						<select class="field" required>
-							<option value="none"></option>
-							<option value="accounting">حسابداری</option>
-							<option value="it">IT</option>
-							<option value="mba">MBA</option>
+							<option value="none">--</option>
+							<option>حسابداری</option>
+							<option>IT</option>
+							<option>MBA</option>
 						</select>
 					</div>
 					<div>
@@ -38,7 +38,6 @@
 								id="studing"
 								name="educationStatus"
 								class="custom-radio"
-								value="notYet"
 								checked />
 							<label>هنوز در حال تحصیل میباشم</label>
 
@@ -46,9 +45,7 @@
 								type="radio"
 								id="graduated"
 								name="educationStatus"
-								class="custom-radio"
-								value="ended" 
-								onchange=""/>
+								class="custom-radio" />
 							<label>فارغ التحصیل:</label>
 							<!------------ hide ------------>
 							<input type="date" id="date" />
@@ -82,7 +79,7 @@
 					<line x1="32.5" y1="50" x2="67.5" y2="50" stroke-width="5"></line>
 					<line x1="50" y1="32.5" x2="50" y2="67.5" stroke-width="5"></line>
 				</svg>
-				<a href="">افزودن مدرک تحصیلی...</a>
+				<a href="" id="addToTable">افزودن مدرک تحصیلی...</a>
 			</div>
 			<div class="table">
 				<table>
@@ -95,15 +92,7 @@
 							<th>پایان</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td>مدرک</td>
-							<td>رشته</td>
-							<td>گرایش</td>
-							<td>دانشگاه</td>
-							<td>date</td>
-						</tr>
-					</tbody>
+					<tbody></tbody>
 				</table>
 			</div>
 
