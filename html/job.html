@@ -13,7 +13,7 @@
 				<div class="column">
 					<div>
 						<label>نام شرکت:</label>
-						<input type="text" />
+						<input type="text" id="company" />
 					</div>
 					<div>
 						<label>سال ورود:</label>
@@ -24,27 +24,28 @@
 						<div class="status">
 							<input
 								type="radio"
-								id="studying"
+								id="working"
 								name="educationStatus"
-								class="custom-radio" />
-							<label class="text-sm">هنوز در حال همکاری هستم</label>
+								class="custom-radio"
+								checked />
+							<label>هنوز در حال همکاری هستم</label>
 
 							<input
 								type="radio"
-								id="graduated"
+								id="end-of-work"
 								name="educationStatus"
 								class="custom-radio" />
-							<label class="text-sm">سال پایان:</label>
+							<label>سال پایان:</label>
+
 							<input type="date" class="start-date" />
 						</div>
 					</div>
 				</div>
 				<!-- --------------------second column--------------------- -->
 				<div class="column">
-					<div></div>
 					<div>
 						<label>عنوان شغلی:</label>
-						<input type="text" />
+						<input type="text" id="job-title"/>
 					</div>
 				</div>
 			</div>
@@ -60,7 +61,7 @@
 					<line x1="32.5" y1="50" x2="67.5" y2="50" stroke-width="5"></line>
 					<line x1="50" y1="32.5" x2="50" y2="67.5" stroke-width="5"></line>
 				</svg>
-				<a href="">افزودن سابقه...</a>
+				<a href="" id="add-history">افزودن سابقه...</a>
 			</div>
 			<div class="table">
 				<table>
@@ -72,14 +73,7 @@
 							<th>پایان</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td>نام شرکت</td>
-							<td>عنوان شغلی</td>
-							<td>شروع</td>
-							<td>پایان</td>
-						</tr>
-					</tbody>
+					<tbody></tbody>
 				</table>
 			</div>
 			<!----------------------- submmit------------------- -->
