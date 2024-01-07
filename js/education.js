@@ -10,8 +10,7 @@ const dateOfEnd = document.querySelector("#date");
 const branchBox = document.querySelector("#branchBox");
 const addToTable = document.querySelector("#addToTable");
 const saveToTable = document.querySelector(".select");
-const hi = document.querySelector("#hi");
-
+const tableBody = document.querySelector("tbody");
 // depence
 fieldSel.addEventListener("change", () => {
 	if (fieldSel.value === "حسابداری") {
@@ -22,13 +21,13 @@ fieldSel.addEventListener("change", () => {
 		branchBox.innerHTML = accounting;
 	} else if (fieldSel.value === "IT") {
 		branchDiv.style.display = "block";
-		const it = `<option value="a">مدیریت دانش</option>
+		const it = `<option >مدیریت دانش</option>
         <option >معماری سازمانی</option>
         <option >امنیت داده</option>`;
 		branchBox.innerHTML = it;
 	} else if (fieldSel.value === "MBA") {
 		branchDiv.style.display = "block";
-		const mba = `<option value="a">مالی</option>
+		const mba = `<option >مالی</option>
         <option >بازاریابی</option>
         <option >استراتژی</option>`;
 		branchBox.innerHTML = mba;
@@ -51,10 +50,31 @@ endOfStudy.addEventListener("change", () => {
 const saveToLocal = () => {
 	localStorage.setItem("table", JSON.stringify(tableAdd));
 };
+const tableAdd = JSON.parse(localStorage.getItem("table")) || [];
 
-const tableAdd = [];
+const displayTable = () => {
+	tableBody.innerHTML = "";
+	if (!tableAdd.length) {
+		tableBody.innerHTML = `<tr> <td colspan="5"> مدرکی وارد نشده </td> </tr>`;
+		return;
+	}
+
+	tableAdd.forEach((Element) => {
+		tableBody.innerHTML += `
+        <tr>
+            <td>${Element.degree}</td>
+            <td>${Element.field}</td>
+            <td>${Element.branch}</td>
+            <td>${Element.uni}</td>
+            <td>${Element.date ? Element.date : "درحال تحصیل"}</td>
+        </tr>
+        
+        `;
+	});
+};
+
 const addHandler = (e) => {
-	// e.preventDefault();
+	e.preventDefault();
 	const degree = degreeSel.value;
 	const field = fieldSel.value;
 	const branch = branchBox.value;
@@ -70,6 +90,13 @@ const addHandler = (e) => {
 	if (uni && field && branch) {
 		tableAdd.push(tableItems);
 		saveToLocal();
+		displayTable();
+		degreeSel.value = "none";
+		fieldSel.value = "none";
+		branchDiv.style.display = "none";
+		univercityInput.value = "";
+		dateOfEnd.value = "";
+		studingRadio.innerHTML += `checked`;
 	} else {
 		alert("فیلد ها نباید خالی باشه!");
 		return;
@@ -77,3 +104,4 @@ const addHandler = (e) => {
 };
 
 saveToTable.addEventListener("click", addHandler);
+displayTable();
