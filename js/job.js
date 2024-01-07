@@ -58,10 +58,10 @@ const addHandler = (e) => {
 		tableAdd.push(tableItems);
 		saveToLocal();
 		displayTable();
-		company.value = "none";
-		jobTitle.value = "none";
-		date.style.display = "none";
-		enterig.value = "";
+		companyName.value = "";
+		jobTitle.value = "";
+		entering.value = "";
+		date.value = "";
 	} else {
 		alert("فیلد ها نباید خالی باشه!");
 		return;
