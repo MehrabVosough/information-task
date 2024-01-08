@@ -13,26 +13,19 @@ const saveToTable = document.querySelector(".select");
 const tableBody = document.querySelector("tbody");
 // depence
 fieldSel.addEventListener("change", () => {
-	if (fieldSel.value === "حسابداری") {
+	const fields = {
+		حسابداری: ["صنعتی", "تجاری", "بازگانی"],
+		IT: ["مدیریت دانش", "معماری سازمانی", "امنیت داده"],
+		MBA: ["مالی", "بازاریابی", "استراتژی"],
+	};
+
+	branchDiv.style.display = "none";
+	const selectedField = fieldSel.value;
+	if (fields[selectedField]) {
 		branchDiv.style.display = "block";
-		const accounting = `<option>صنعتی</option>
-		<option >تجاری</option>
-		<option >بازگانی</option>`;
-		branchBox.innerHTML = accounting;
-	} else if (fieldSel.value === "IT") {
-		branchDiv.style.display = "block";
-		const it = `<option >مدیریت دانش</option>
-        <option >معماری سازمانی</option>
-        <option >امنیت داده</option>`;
-		branchBox.innerHTML = it;
-	} else if (fieldSel.value === "MBA") {
-		branchDiv.style.display = "block";
-		const mba = `<option >مالی</option>
-        <option >بازاریابی</option>
-        <option >استراتژی</option>`;
-		branchBox.innerHTML = mba;
-	} else {
-		branchDiv.style.display = "none";
+		branchBox.innerHTML = fields[selectedField]
+			.map((option) => `<option>${option}</option>`)
+			.join("");
 	}
 });
 
@@ -81,11 +74,11 @@ const addHandler = (e) => {
 	const uni = univercityInput.value;
 	const date = dateOfEnd.value;
 	const tableItems = {
-		degree: degree,
-		field: field,
-		branch: branch,
-		uni: uni,
-		date: date,
+		degree,
+		field,
+		branch,
+		uni,
+		date,
 	};
 	if (uni && field && branch) {
 		tableAdd.push(tableItems);
@@ -96,7 +89,8 @@ const addHandler = (e) => {
 		branchDiv.style.display = "none";
 		univercityInput.value = "";
 		dateOfEnd.value = "";
-		studingRadio.innerHTML += `checked`;
+		studingRadio.checked = true;
+		dateOfEnd.style.display = "none";
 	} else {
 		alert("فیلد ها نباید خالی باشه!");
 		return;
