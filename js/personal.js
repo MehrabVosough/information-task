@@ -15,73 +15,52 @@ const citySel = document.querySelector("#city");
 const submit = document.querySelector(".submit");
 
 // DEPENCE
-genderSel.addEventListener("change", () => {
-	genderSel.value === "male"
-		? (militaryDev.style.display = "block")
-		: (militaryDev.style.display = "none");
-});
+document.addEventListener("change", (e) => {
+	const target = e.target;
 
-maritalStatus.addEventListener("change", () => {
-	maritalStatus.value === "married"
-		? (numChildren.style.display = "block")
-		: (numChildren.style.display = "none");
-});
-
-numChildrenInput.addEventListener("change", () => {
-	const childrenCounter = +numChildrenInput.value;
-	ageDiv.innerHTML = "";
-	for (let i = 1; i <= childrenCounter; i++) {
-		const markUp = `<label for="childrenAges">سن فرزند${i}:</label>
+	if (target === genderSel) {
+		militaryDev.style.display = target.value === "male" ? "block" : "none";
+	} else if (target === maritalStatus) {
+		numChildren.style.display = target.value === "married" ? "block" : "none";
+	} else if (target === numChildrenInput) {
+		const childrenCounter = +numChildrenInput.value;
+		ageDiv.innerHTML = "";
+		for (let i = 1; i <= childrenCounter; i++) {
+			const markUp = `<label for="childrenAges">سن فرزند${i}:</label>
 		<input  type="text" step="1" class="childrenAges" name="childrenAges" required />`;
-		ageDiv.innerHTML += markUp;
+			ageDiv.innerHTML += markUp;
+		}
 	}
 });
-
 // SAVE TO LOCAL
-const saveToLocal = submit.addEventListener("click", () => {
-	const saving = [
-		{
-			name: nameInput.value,
-			lastNameInput: lastNameInput.value,
-			phoneInput: phoneInput.value,
-			emailInput: emailInput.value,
-			maritalStatus: maritalStatus.value,
-			gender: genderSel.value,
-			citySel: citySel.value,
-			military: militarySel.value,
-			numChildrenInput: numChildrenInput.value,
-		},
-	];
+submit.addEventListener("click", () => {
+	const saving = {
+		name: nameInput.value,
+		lastName: lastNameInput.value,
+		phone: phoneInput.value,
+		email: emailInput.value,
+		maritalStatus: maritalStatus.value,
+		gender: genderSel.value,
+		city: citySel.value,
+		military: militarySel.value,
+		numChildren: numChildrenInput.value,
+	};
 	localStorage.setItem("information", JSON.stringify(saving));
 });
-
 //destructure for keep data
-
 const savedLocal = localStorage.getItem("information");
-const pareseSaveLocal = JSON.parse(savedLocal);
-const keys = Object.values(pareseSaveLocal[0]);
-
-const [
-	name,
-	lastName,
-	phone,
-	email,
-	marital,
-	gender,
-	city,
-	military,
-	children,
-] = keys;
-
-nameInput.value = name;
-lastNameInput.value = lastName;
-phoneInput.value = phone;
-emailInput.value = email;
-maritalStatus.value = marital;
-genderSel.value = gender;
-citySel.value = city;
-militarySel.value = military;
-numChildrenInput.value = children;
+if (savedLocal) {
+	const parsedSaveLocal = JSON.parse(savedLocal);
+	nameInput.value = parsedSaveLocal.name;
+	lastNameInput.value = parsedSaveLocal.lastName;
+	phoneInput.value = parsedSaveLocal.phone;
+	emailInput.value = parsedSaveLocal.email;
+	maritalStatus.value = parsedSaveLocal.maritalStatus;
+	genderSel.value = parsedSaveLocal.gender;
+	citySel.value = parsedSaveLocal.city;
+	militarySel.value = parsedSaveLocal.military;
+	numChildrenInput.value = parsedSaveLocal.numChildren;
+}
 genderSel.value === "male"
 	? (militaryDev.style.display = "block")
 	: (militaryDev.style.display = "none");
