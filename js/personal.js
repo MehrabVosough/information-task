@@ -61,23 +61,3 @@ const saveHandeler = () => {
 };
 submit.addEventListener("click", saveHandeler);
 
-// //destructure for keep data
-// const savedLocal = localStorage.getItem("information");
-// if (savedLocal) {
-// 	const parsedSaveLocal = JSON.parse(savedLocal);
-// 	nameInput.value = parsedSaveLocal.name;
-// 	lastNameInput.value = parsedSaveLocal.lastName;
-// 	phoneInput.value = parsedSaveLocal.phone;
-// 	emailInput.value = parsedSaveLocal.email;
-// 	maritalStatus.value = parsedSaveLocal.maritalStatus;
-// 	genderSel.value = parsedSaveLocal.gender;
-// 	citySel.value = parsedSaveLocal.city;
-// 	militarySel.value = parsedSaveLocal.military;
-// 	numChildrenInput.value = parsedSaveLocal.numChildren;
-// }
-// genderSel.value === "male"
-// 	? (militaryDev.style.display = "block")
-// 	: (militaryDev.style.display = "none");
-// maritalStatus.value === "married"
-// 	? (numChildren.style.display = "block")
-// 	: (numChildren.style.display = "none");
