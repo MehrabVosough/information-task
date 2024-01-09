@@ -1,19 +1,20 @@
-// GETS
-const genderSel = document.querySelector("#gender");
-const militaryDev = document.querySelector(".military");
-const militarySel = document.querySelector("#militaryService");
-const maritalStatus = document.querySelector("#maritalStatus");
-const numChildren = document.querySelector(".num-children");
-const numChildrenInput = document.querySelector(".numberOfChildren");
-const childrenAges = document.querySelector(".childrenAges");
-const ageDiv = document.querySelector(".ages");
-const nameInput = document.querySelector("#firstName");
-const lastNameInput = document.querySelector("#lastName");
-const phoneInput = document.querySelector("#phoneNumber");
-const emailInput = document.querySelector("#email");
-const citySel = document.querySelector("#city");
-const submit = document.querySelector(".submit");
-
+import {
+	genderSel,
+	militaryDev,
+	militarySel,
+	maritalStatus,
+	numChildren,
+	numChildrenInput,
+	childrenAges,
+	ageDiv,
+	nameInput,
+	lastNameInput,
+	phoneInput,
+	emailInput,
+	citySel,
+	submit,
+	infoLocalSaved,
+} from "./variables.js";
 // DEPENCE
 document.addEventListener("change", (e) => {
 	const target = e.target;
@@ -32,8 +33,14 @@ document.addEventListener("change", (e) => {
 		}
 	}
 });
+
 // SAVE TO LOCAL
-submit.addEventListener("click", () => {
+
+const localItems = () => {
+	localStorage.setItem("information", JSON.stringify(infoLocalSaved));
+};
+
+const saveHandeler = () => {
 	const saving = {
 		name: nameInput.value,
 		lastName: lastNameInput.value,
@@ -45,25 +52,32 @@ submit.addEventListener("click", () => {
 		military: militarySel.value,
 		numChildren: numChildrenInput.value,
 	};
-	localStorage.setItem("information", JSON.stringify(saving));
-});
-//destructure for keep data
-const savedLocal = localStorage.getItem("information");
-if (savedLocal) {
-	const parsedSaveLocal = JSON.parse(savedLocal);
-	nameInput.value = parsedSaveLocal.name;
-	lastNameInput.value = parsedSaveLocal.lastName;
-	phoneInput.value = parsedSaveLocal.phone;
-	emailInput.value = parsedSaveLocal.email;
-	maritalStatus.value = parsedSaveLocal.maritalStatus;
-	genderSel.value = parsedSaveLocal.gender;
-	citySel.value = parsedSaveLocal.city;
-	militarySel.value = parsedSaveLocal.military;
-	numChildrenInput.value = parsedSaveLocal.numChildren;
-}
-genderSel.value === "male"
-	? (militaryDev.style.display = "block")
-	: (militaryDev.style.display = "none");
-maritalStatus.value === "married"
-	? (numChildren.style.display = "block")
-	: (numChildren.style.display = "none");
+	if (nameInput.value && lastNameInput.value && phoneInput.value) {
+		infoLocalSaved.push(saving);
+		localItems();
+	} else {
+		alert("فیلد ها نباید خالی باشد");
+	}
+};
+submit.addEventListener("click", saveHandeler);
+
+// //destructure for keep data
+// const savedLocal = localStorage.getItem("information");
+// if (savedLocal) {
+// 	const parsedSaveLocal = JSON.parse(savedLocal);
+// 	nameInput.value = parsedSaveLocal.name;
+// 	lastNameInput.value = parsedSaveLocal.lastName;
+// 	phoneInput.value = parsedSaveLocal.phone;
+// 	emailInput.value = parsedSaveLocal.email;
+// 	maritalStatus.value = parsedSaveLocal.maritalStatus;
+// 	genderSel.value = parsedSaveLocal.gender;
+// 	citySel.value = parsedSaveLocal.city;
+// 	militarySel.value = parsedSaveLocal.military;
+// 	numChildrenInput.value = parsedSaveLocal.numChildren;
+// }
+// genderSel.value === "male"
+// 	? (militaryDev.style.display = "block")
+// 	: (militaryDev.style.display = "none");
+// maritalStatus.value === "married"
+// 	? (numChildren.style.display = "block")
+// 	: (numChildren.style.display = "none");

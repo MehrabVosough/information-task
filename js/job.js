@@ -1,12 +1,14 @@
-const companyName = document.querySelector("#company");
-const entering = document.querySelector(".enter-date");
-const working = document.querySelector("#working");
-const endOfWork = document.querySelector("#end-of-work");
-const date = document.querySelector(".start-date");
-const jobTitle = document.querySelector("#job-title");
-const addSel = document.querySelector(".select");
-const tableBody = document.querySelector("tbody");
-
+import {
+	companyName,
+	entering,
+	jobTitle,
+	working,
+	endOfWork,
+	date,
+	addSel,
+	jobTableBody,
+	tableAdd,
+} from "./variables.js";
 // radio date
 working.addEventListener("change", () => {
 	date.style.display = "none";
@@ -20,17 +22,16 @@ endOfWork.addEventListener("change", () => {
 const saveToLocal = () => {
 	localStorage.setItem("job", JSON.stringify(tableAdd));
 };
-const tableAdd = JSON.parse(localStorage.getItem("job")) || [];
 
 const displayTable = () => {
-	tableBody.innerHTML = "";
+	jobTableBody.innerHTML = "";
 	if (!tableAdd.length) {
-		tableBody.innerHTML = `<tr> <td colspan="5"> سابقه وارد نشده </td> </tr>`;
+		jobTableBody.innerHTML = `<tr> <td colspan="5"> سابقه وارد نشده </td> </tr>`;
 		return;
 	}
 
 	tableAdd.forEach((Element) => {
-		tableBody.innerHTML += `
+		jobTableBody.innerHTML += `
         <tr>
             <td>${Element.company}</td>
             <td>${Element.jobTitle}</td>

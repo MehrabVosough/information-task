@@ -1,16 +1,17 @@
-// GETS
-const degreeSel = document.querySelector(".degree");
-const fieldSel = document.querySelector(".field");
-const branchDiv = document.querySelector(".branch");
-const branchSel = document.querySelector("#branchsel");
-const univercityInput = document.querySelector("#university");
-const studingRadio = document.querySelector("#studing");
-const endOfStudy = document.querySelector("#graduated");
-const dateOfEnd = document.querySelector("#date");
-const branchBox = document.querySelector("#branchBox");
-const addToTable = document.querySelector("#addToTable");
-const saveToTable = document.querySelector(".select");
-const tableBody = document.querySelector("tbody");
+import {
+	degreeSel,
+	fieldSel,
+	branchDiv,
+	univercityInput,
+	studingRadio,
+	endOfStudy,
+	dateOfEnd,
+	branchBox,
+	addToTable,
+	educationTableBody,
+	tableAddEducation,
+} from "./variables.js";
+
 // depence
 fieldSel.addEventListener("change", () => {
 	const fields = {
@@ -39,21 +40,19 @@ endOfStudy.addEventListener("change", () => {
 });
 
 // save to table
-
 const saveToLocal = () => {
-	localStorage.setItem("education", JSON.stringify(tableAdd));
+	localStorage.setItem("education", JSON.stringify(tableAddEducation));
 };
-const tableAdd = JSON.parse(localStorage.getItem("education")) || [];
 
 const displayTable = () => {
-	tableBody.innerHTML = "";
-	if (!tableAdd.length) {
-		tableBody.innerHTML = `<tr> <td colspan="5"> مدرکی وارد نشده </td> </tr>`;
+	educationTableBody.innerHTML = "";
+	if (!tableAddEducation.length) {
+		educationTableBody.innerHTML = `<tr> <td colspan="5"> مدرکی وارد نشده </td> </tr>`;
 		return;
 	}
 
-	tableAdd.forEach((Element) => {
-		tableBody.innerHTML += `
+	tableAddEducation.forEach((Element) => {
+		educationTableBody.innerHTML += `
         <tr>
             <td>${Element.degree}</td>
             <td>${Element.field}</td>
@@ -81,7 +80,7 @@ const addHandler = (e) => {
 		date,
 	};
 	if (uni && field && branch) {
-		tableAdd.push(tableItems);
+		tableAddEducation.push(tableItems);
 		saveToLocal();
 		displayTable();
 		degreeSel.value = "none";
@@ -97,5 +96,5 @@ const addHandler = (e) => {
 	}
 };
 
-saveToTable.addEventListener("click", addHandler);
+addToTable.addEventListener("click", addHandler);
 displayTable();
